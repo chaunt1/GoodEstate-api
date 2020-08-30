@@ -1,6 +1,6 @@
 const db = require('../models');
 const ROLES = db.ROLES;
-const User = db.User;
+const User = db.user;
 
 checkDuplicateUsernameOrEmail = (req, res, next) => {
   // Username
@@ -15,7 +15,6 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
       res.status(400).send({ message: "Failed! Username is already in use!" });
       return;
     }
-
     // Email
     User.findOne({
       email: req.body.email
