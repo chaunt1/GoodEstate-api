@@ -10,6 +10,6 @@ module.exports = function(app) {
     next();
   });
 
-  app.get('/api/data/page/:page', controller.getAll);
+  app.get('/api/data/:type/page/:page', controller.getAll);
   app.get('/api/data/item/:id', controller.getDetail);
 }

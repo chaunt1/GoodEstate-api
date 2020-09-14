@@ -38,8 +38,8 @@ const Data = mongoose.model(
   dataSchema
 );
 
-async function getPerPage(limitPerPage, pageNumber) {
-  return Data.find({}).limit(limitPerPage).skip(limitPerPage * pageNumber).exec();
+async function getPerPage(limitPerPage, pageNumber, type) {
+  return Data.find({ segment: type }).limit(limitPerPage).skip(limitPerPage * pageNumber).exec();
 }
 
 async function get(id) {
