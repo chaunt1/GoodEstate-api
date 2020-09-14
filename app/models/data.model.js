@@ -39,7 +39,7 @@ const Data = mongoose.model(
 );
 
 async function getAll() {
-  return Data.find({}).exec();
+  return Data.find({}).count().exec();
 }
 
 async function get(id) {

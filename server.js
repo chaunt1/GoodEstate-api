@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const db = require('./app/models');
-const dbData = require('./app/modelsData');
 const dbConfig = require('./app/config/db.config');
 const Role = db.role;
 const PORT = process.env.PORT || 8080;
@@ -31,6 +30,7 @@ app.get('/', (req, res) => {
 });
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
+require('./app/routes/data.routes')(app);
 
 function initRole() {
   Role.estimatedDocumentCount((err, count) => {
