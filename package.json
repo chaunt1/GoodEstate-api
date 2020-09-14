@@ -5,7 +5,8 @@
   "repository": "https://github.com/chowchowww/GoodEstate-api.git",
   "author": "Chow <chaulea@gmail.com>",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "nodemon server.js"
   },
   "license": "MIT",
   "dependencies": {
