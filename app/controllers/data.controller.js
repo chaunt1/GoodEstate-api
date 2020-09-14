@@ -1,7 +1,7 @@
 const dataModel = require('../models/data.model');
 
 exports.getAll = async (req,res) => {
-  const limitPerPage = 10;
+  const limitPerPage = 5;
   const pageNumber = req.params.page >= 1 ? req.params.page : 1;
 
   const data = await dataModel.getPerPage(limitPerPage, pageNumber);
