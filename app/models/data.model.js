@@ -54,9 +54,16 @@ async function update(data) {
     .catch(async (error) => [error]);
 }
 
+async function search(limitPerPage, pageNumber, params) {
+  return Data.find({
+    title: { $regex: params, $options: 'i'}
+   }).limit(limitPerPage).skip(limitPerPage * pageNumber).exec();
+}
+
 
 module.exports = {
   getPerPage,
   get,
   update,
+  search,
 };

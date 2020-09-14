@@ -15,3 +15,12 @@ exports.getDetail = async (req,res) => {
   const item = await dataModel.get(id);
   res.status(200).json(item);
 }
+
+exports.search = async (req,res) => {
+  const limitPerPage = 5;
+  const pageNumber = req.params.page >= 1 ? req.params.page : 1;
+  const search = req.params.input;
+
+  const item = await dataModel.search(limitPerPage, pageNumber, search);
+  res.status(200).json(item);
+}
