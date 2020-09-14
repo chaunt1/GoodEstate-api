@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
 
 const dataSchema = new mongoose.Schema({
   segment: Number,
@@ -38,8 +39,8 @@ const Data = mongoose.model(
   dataSchema
 );
 
-async function getAll() {
-  return Data.find({}).count().exec();
+async function getPerPage(limitPerPage, pageNumber) {
+  return Data.find({}).limit(limitPerPage).skip(limitPerPage * pageNumber).exec();
 }
 
 async function get(id) {
@@ -55,9 +56,8 @@ async function update(data) {
 }
 
 
-
 module.exports = {
-  getAll,
+  getPerPage,
   get,
   update,
 };
